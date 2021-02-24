@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     backgroundColor: '#0AA1A1',
-    color: 'red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -24,17 +23,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
+  ScrollView:{
+    width: '100%',
+    height: '100%',
+    
+  },
+
   containerForm:{
-    flex: 1,
+    flex: 2,
     backgroundColor: 'white',
     borderRadius: 5,
-    width: '90%',
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
     paddingTop: 10,
-    marginBottom: 10,
     opacity: 0.9,
-    marginTop: 5
   },
 
   textForm:{
@@ -61,11 +64,12 @@ const styles = StyleSheet.create({
     width: '80%',
     backgroundColor: '#0AA1A1',
     borderRadius: 5,
-    marginTop: 8,
+    marginTop: 20,
     height: 30,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 20
   },
    
   textBtnCadastro:{
@@ -80,9 +84,10 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: '#0AA1A1',
     borderRadius: 5,
-    padding: 3,
+    padding: 5,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    width: '80%'
   },  
 
   formEstudante:{
@@ -91,7 +96,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 2
   }
 
   

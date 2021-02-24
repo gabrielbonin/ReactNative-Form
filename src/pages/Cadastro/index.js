@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Switch, Image, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, Switch, Image, TouchableOpacity, ScrollView} from 'react-native';
 
 import Slider from '@react-native-community/slider';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -15,13 +15,13 @@ export default function Cadastro(){
   const [nome, setNome] = useState();
   const [idade, setIdade] = useState();
   const [sexo, setSexo] = useState();
-
   const [limite, setLimite] = useState(500);
   const [estudante, setEstudante] = useState(false);
+
   const navigation = useNavigation();
 
   function enviarDados(){
-    //navigation.navigate('Finaliza', {nome: nome, idade: idade, estudante: estudante, limite: limite})
+    navigation.navigate('Final', {nome: nome, idade: idade, estudante: estudante, limite: limite})
   }
   
   return(
@@ -29,9 +29,21 @@ export default function Cadastro(){
       <Text style={styles.text1}>Seja muito Bem vindo!</Text>
       <Image source={imgCad}/>
       <Text style={styles.text2}>Crie sua conta abaixo:</Text>
+        <ScrollView style={styles.ScrollView}>
         <View style={styles.containerForm}>
+          
           <Text style={styles.textForm}>Nome:</Text>
-          <TextInput style={styles.inputForm} placeholder="Digite seu nome"></TextInput>
+          <TextInput style={styles.inputForm} 
+          placeholder="Digite seu nome"
+          onChangeText={(value)=> setNome(value)}
+          ></TextInput>
+
+          <Text style={styles.textForm}>Idade:</Text>
+          <TextInput style={styles.inputForm}
+          placeholder="Digite sua idade"
+          keyboardType="numeric"
+          onChangeText={(value)=> setIdade(value)}
+          ></TextInput>
 
           <Text style={styles.textForm}>Informe seu sexo:</Text>
           <DropDownPicker
@@ -51,7 +63,7 @@ export default function Cadastro(){
 
           <Text style={styles.textSlider}>Seu limite desejavel: R$ ${limite.toFixed(0)}</Text>
           <Slider
-          style={{width: '90%', height: 27}}
+          style={{width: '87%', height: 30}}
           minimumValue={500}
           maximumValue={2000}
           step={500}
@@ -60,7 +72,7 @@ export default function Cadastro(){
           ></Slider>
 
           <View style={styles.formEstudante}>
-          <Text style={styles.textForm}>Estudante?</Text>
+          <Text style={styles.textForm}>Você é Estudante?</Text>
           <Switch
           trackColor={{false: '#767577', true: '#0AA1A1'}}
           onValueChange={(valEstudante)=> setEstudante(valEstudante)}
@@ -71,6 +83,8 @@ export default function Cadastro(){
             <Text style={styles.textBtnCadastro}>Abrir Conta</Text>
           </TouchableOpacity>
         </View>
+        </ScrollView>
+        
     </View>
 
   )
