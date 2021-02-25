@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from './src/pages/Home';
 import Cadastro from './src/pages/Cadastro';
-import Cadastro from './src/pages/Final';
+import Final from './src/pages/Final';
 
 const Stack = createStackNavigator();
 
